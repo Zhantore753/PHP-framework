@@ -11,7 +11,7 @@ class Settings
 
     private $routes = [
         'admin' =>[
-            'name' => 'admin',
+            'alias' => 'admin',
             'path' => 'core/admin/controller/',
             'hrUrl' => false,
         ],
@@ -26,7 +26,7 @@ class Settings
             'path' => 'core/user/controller',
             'hrUrl' => true,
             'routes' => [
-
+                'catalog' => 'site'
             ],
         ],
         'default' => [
