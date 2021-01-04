@@ -21,6 +21,7 @@ class Settings
         'plugins' => [
             'path' => 'core/plugins/',
             'hrUrl' => false,
+            'dir' => false,
         ],
         'user' => [
             'path' => 'core/user/controller',
