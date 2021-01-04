@@ -34,7 +34,7 @@ class RouteController
     private  function __construct(){
         $adress_str = $_SERVER['REQUEST_URI'];
 
-        if(strrpos($adress_str, '/') === strlen($adress_str - 1) && strrpos($adress_str, '/') !== 0){
+        if(strrpos($adress_str, '/') === strlen($adress_str) - 1  && strrpos($adress_str, '/') !== 0){
             $this->redirect(rtrim($adress_str, '/'), 301);
         }
 
@@ -48,6 +48,8 @@ class RouteController
             if(strpos($adress_str, $this->routes['admin']['alias']) === strlen(PATH)){
 
                 $url = explode('/', substr($adress_str, strlen(PATH . $this->routes['admin']['alias']) + 1));
+
+//                $check = $_SERVER['DOCUMENT_ROOT'] . PATH . $this->routes['plugins']['path'] . $url[0];
 
                 if($url[0] && is_dir($_SERVER['DOCUMENT_ROOT'] . PATH . $this->routes['plugins']['path'] . $url[0])){
 
@@ -100,7 +102,7 @@ class RouteController
                     $i = 2;
                 }
 
-                for(; $i < $count; $i++){
+                for( ; $i < $count; $i++){
                     if(!$key){
                         $key = $url[$i];
                         $this->parameters[$key] = '';
@@ -111,7 +113,6 @@ class RouteController
                 }
             }
 
-            exit();
         }else{
             try{
                 throw new \Exception('Не корректная директория сайта');
