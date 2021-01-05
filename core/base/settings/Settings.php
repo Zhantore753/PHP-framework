@@ -77,7 +77,7 @@ class Settings
         return $baseProperties;
     }
 
-    public function arrayMergeRecursive(){
+    public function arrayMergeRecursive(){ // функция склейки двух массивов
         $arrays = func_get_args();
 
         $base = array_shift($arrays);

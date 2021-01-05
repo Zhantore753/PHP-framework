@@ -18,9 +18,9 @@ const ADMIN_CSS_JS = [
     'scripts' => []
 ];
 
-use core\base\exceptions\RouteException;
+use core\base\exceptions\RouteException; // пространаство имен класса RouteException
 
-function autoLoadMainClasses($class_name){
+function autoLoadMainClasses($class_name){ // автозагрузка всех классов
     $class_name = str_replace('\\', '/', $class_name);
 
     if(!@include_once $class_name.'.php'){
