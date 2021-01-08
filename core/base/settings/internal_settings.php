@@ -18,6 +18,11 @@ const ADMIN_CSS_JS = [
     'scripts' => []
 ];
 
+const USER_CSS_JS = [
+    'styles' => ['css/styles.css'],
+    'scripts' => []
+];
+
 use core\base\exceptions\RouteException; // пространаство имен класса RouteException
 
 function autoLoadMainClasses($class_name){ // автозагрузка всех классов
