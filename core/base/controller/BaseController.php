@@ -5,6 +5,7 @@ namespace core\base\controller;
 
 
 use core\base\exceptions\RouteException;
+use core\base\settings\Settings;
 
 abstract class BaseController
 {
@@ -43,9 +44,16 @@ abstract class BaseController
         $inputData = $args['inputMethod']; // сохраняем имя входного метода
         $outputData = $args['outputMethod']; // сохраняем имя выходного метода
 
-        $this->$inputData(); // вызов для формирования
+        $data = $this->$inputData(); // вызов для формирования и помещение результата в переменную
 
-        $this->page = $this->$outputData(); // Собираем шаблон по данным которые вернул выходной метод
+        if(method_exists($this, $outputData)){
+            $page = $this->$outputData($data);
+            if($page) $this->page = $page;
+        } // Проверяем на наличие выходного метода если есть то:
+        // Собираем шаблон по данным которые вернул выходной метод(передаю то что вернул входной метод)
+        elseif ($data){
+            $this->page = $data;
+        }  // Проверяем на наличие $data если есть то передаем странице
 
         if($this->errors){ //пероверка на нличие ошибок
             $this->writeLog(); // логировние ошибок
@@ -59,7 +67,16 @@ abstract class BaseController
         extract($parameters); //создание таблицы параметров// создание переменных на основе массива в виде $key = $value
 
         if(!$path){ // если path не был передан
-            $path = TEMPLATE . explode('controller', strtolower((new \ReflectionClass($this))->getShortName()))[0]; // возвращает имя класса в нижнем регистре, который в свою очередь разбивается на массив с помощью explode. И мы берем нулевый элемент этого массива
+
+            $class = new \ReflectionClass($this); // берем информацию о классе
+
+            $space = str_replace('\\', '/',$class->getNamespaceName() . '\\'); // запрашиваем пространство имен класса и превращаем в путь
+            $routes = Settings::get('routes'); // берем routes для дальнейшей проверки
+
+            if($space === $routes['user']['path']) $template = TEMPLATE; // проверка на user, в переменную $template передаю дефолтный TEMPLATE
+            else $template = ADMIN_TEMPLATE; // в переменную $template передаю админский TEMPLATE
+
+            $path = $template . explode('controller', strtolower($class->getShortName()))[0]; // возвращает имя класса в нижнем регистре, который в свою очередь разбивается на массив с помощью explode. И мы берем нулевый элемент этого массива
         }
 
         ob_start(); // открытие буфера обмена
@@ -70,6 +87,13 @@ abstract class BaseController
     }
 
     protected function getPage(){
-        exit($this->page);
+
+        if(is_array($this->page)){ // Проверка на является ли $this->page массивом
+            foreach ($this->page as $block) echo $block; // перебор массива формировние страницы
+        } else{
+            echo $this->page;  // формировние страницы
+        }
+        exit();
+
     }
 }

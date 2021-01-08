@@ -1,0 +1,1 @@
+<div>Это footer</div>
