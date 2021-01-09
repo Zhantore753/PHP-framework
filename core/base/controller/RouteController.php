@@ -5,8 +5,6 @@ namespace core\base\controller;
 
 use core\base\exceptions\RouteException;
 use core\base\settings\Settings;
-use core\base\settings\ShopSettings;
-
 
 class RouteController extends BaseController
 {
@@ -27,7 +25,7 @@ class RouteController extends BaseController
         if($path === PATH){
             $this->routes = Settings::get('routes');
 
-            if(!$this->routes) throw new RouteException('Сайт находится на техническом обслуживании');
+            if(!$this->routes) throw new RouteException('Отсутствуют маршруты в базовых настройках', 1);
 
             $url = explode('/', substr($adress_str, strlen(PATH)));
 
@@ -98,11 +96,7 @@ class RouteController extends BaseController
             }
 
         }else{
-            try{
-                throw new \Exception('Не корректная директория сайта');
-            }catch(\Exception $e){
-                exit($e->getMessage());
-            }
+            throw new RouteException('Не корректная директория сайта', 1);
         }
     }
 
