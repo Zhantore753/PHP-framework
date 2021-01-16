@@ -73,7 +73,6 @@ class BaseModel
         $fields = $this->createFields($table, $set);
         $order = $this->createOrder($table, $set);
         $where = $this->createWhere($table, $set);
-
         $join_arr = $this->createJoin($table, $set);
 
         $fields .= $join_arr['fields'];
@@ -138,6 +137,65 @@ class BaseModel
         }
 
         return $order_by; // возвращаем $order_by
+
+    }
+
+    protected function createWhere($table = false, $set, $instruction = 'WHERE'){
+
+        $table = $table ? $table . '.' : ''; // Проверка на то есть ли вообще $table
+
+        $where = ''; // создаем переменную $where
+
+        if(is_array($set['where']) && !empty($set['where'])){ // проверка на то является ли ячейка where массивом и на ее наличие впринципе
+
+            $set['operand'] = (is_array($set['operand']) && !empty($set['operand'])) ? $set['operand'] : ['=']; // Проверка на то задан ли операнд если нет то по умолчанию =
+            $set['condition'] = (is_array($set['condition']) && !empty($set['condition'])) ? $set['condition'] : ['AND']; // Проверка на то задан ли condition если нет то по умолчанию AND
+
+            $where = $instruction; // записываем в where дополнительный параметр функции
+
+            $o_count = 0; // counter operand
+            $c_count = 0; // counter condition
+
+            foreach ($set['where'] as $key => $item){ // перебор ячейки where в виде ключ => значение
+
+                $where .= ' '; // добавляем пробел
+
+                if($set['operand'][$o_count]){ // проверка на не пустотность
+                    $operand = $set['operand'][$o_count]; // записываем операнд
+                    $o_count++; // увеличиваем counter
+                }else{ // иначе
+                    $operand = $set['operand'][$o_count - 1]; // записываем операнд с предыдущей ячейки
+                }
+
+                if($set['condition'][$c_count]){ // проверка на не пустотность
+                    $condition = $set['condition'][$c_count]; // записываем condition
+                    $c_count++; // увеличиваем counter
+                }else{ // иначе
+                    $condition = $set['condition'][$c_count - 1]; // записываем condition с предыдущей ячейки
+                }
+
+                if($operand === 'IN' || $operand === 'NOT IN'){ // Если хоть что то из этого есть то идем дальше
+
+                    if(is_string($item) && strpos($item, 'SELECT')){ // Проверка на строку и наличие в ней сточки SELECT
+                        $in_str = $item;
+                    }else{ // иначе
+                        if(is_array($item)) $temp_item = $item; // Проверяем на то массив это или нет есл да то просто кладем в переменную $temp_item
+                        else $temp_item = explode(',', $item); // Если же не массив разбивем строку на массив, с помощью указанного разделителя
+
+                        $in_str = ''; // создание переменной
+
+                        foreach ($temp_item as $v){ // перебор массива с значениями $v
+                            $in_str .= "'" . trim($v) . "',"; // конкатенируем строку в кавычках и избавляемся от пробелов
+                        }
+                    }
+
+                    $where .= $table . $key . ' ' . $operand . ' (' . trim($in_str, ',') . ') ' . $condition;
+
+                    exit();
+                }
+
+            }
+        }
 
     }
 
