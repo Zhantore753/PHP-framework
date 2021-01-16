@@ -189,13 +189,41 @@ class BaseModel
                         }
                     }
 
-                    $where .= $table . $key . ' ' . $operand . ' (' . trim($in_str, ',') . ') ' . $condition;
+                    $where .= $table . $key . ' ' . $operand . ' (' . trim($in_str, ',') . ') ' . $condition; // формровние $where
 
-                    exit();
+                }elseif((strpos($operand, 'LIKE')) !== false){ // Проверка на на наличие LIKE  в операнде
+
+                    $like_template = explode('%', $operand); // разбиваем с помощью разделителя процента переменную $operand
+
+                    foreach ($like_template as $lt_key => $lt){ // перебор массива в виде ключ => значение
+                        if(!$lt){ // если lt false
+                            if(!$lt_key){ // если lt_key false
+                                $item = '%' . $item;
+                            }else{
+                                $item .= '%';
+                            }
+                        }
+                    }
+
+                    $where .= $table . $key . ' LIKE ' . "'" . $item . "' $condition"; // формровние $where
+
+                }else{
+
+                    if((strpos($item, 'SELECT')) === 0){
+                        $where .= $table . $key . $operand . '(' . $item . ") $condition"; // формровние $where
+                    }else{
+                        $where .= $table . $key . $operand . "'" . $item . "' $condition"; // формровние $where
+                    }
+
                 }
 
             }
+
+            $where = substr($where, 0, strrpos($where, $condition)); // формровние $where, удаление полседнего condition
+
         }
+
+        return $where; // возвращаем итоговую $where
 
     }
 
