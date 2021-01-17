@@ -65,7 +65,31 @@ class BaseModel
      * 'condition' => ['AND'],
      * 'order' => ['fio', 'name'],
      * 'order_direction' => ['ASC', "DESC"],
-     * 'limit' => '1'
+     * 'limit' => '1',
+     *  'join' => [
+            [
+                'table' => 'join_table1',
+                'fields' => ['id as j_id', 'name as j_name'],
+                'type' => 'left',
+                'where' => ['name' => 'sasha'],
+                'operand' => ['='],
+                'condition' => ['OR'],
+                'on' => ['id', 'parent_id'],
+     *          'group_condition' => 'AND',
+            ],
+            'join_table1' => [
+                'table' => 'join_table2',
+                'fields' => ['id as j2_id', 'name as j2_name'],
+                'type' => 'left',
+                'where' => ['name' => 'sasha'],
+                'operand' => ['<>'],
+                'condition' => ['AND'],
+                'on' => [
+                        'table' => 'teachers',
+                        'fields' => ['id', 'parent_id']
+                    ],
+            ],
+        ],
      */
 
     final public function get($table, $set = []){
@@ -73,7 +97,10 @@ class BaseModel
         $fields = $this->createFields($table, $set);
         $order = $this->createOrder($table, $set);
         $where = $this->createWhere($table, $set);
-        $join_arr = $this->createJoin($table, $set);
+
+        if(!$where) $new_where = true;
+        else $new_where = false;
+        $join_arr = $this->createJoin($table, $set, $new_where);
 
         $fields .= $join_arr['fields'];
         $join = $join_arr['join'];
@@ -130,7 +157,8 @@ class BaseModel
                     $order_direction = strtoupper($set['order_direction'][$direct_count - 1]); // поднимаем все в вверхний регистр предыдущую ячейку
                 }
 
-                $order_by .= $table . $order . ' ' . $order_direction . ','; // конкатенируем к переменной $table, $order, ' ', $order_direction и запятую
+                if(is_int($order)) $order_by .= $order . ' ' . $order_direction . ','; // конкатенация без таблицы если order это число
+                else $order_by .= $table . $order . ' ' . $order_direction . ','; // конкатенируем к переменной $table, $order, ' ', $order_direction и запятую
             }
 
             $order_by = rtrim($order_by, ','); // избавляемся от запятой в конце строки
@@ -224,6 +252,79 @@ class BaseModel
         }
 
         return $where; // возвращаем итоговую $where
+
+    }
+
+    protected function createJoin($table, $set, $new_where = false){
+
+        $fields = '';
+        $join = '';
+        $where = '';
+
+        if($set['join']){
+
+            $join_table = $table; // определяем таблицу
+
+            foreach ($set['join'] as $key => $item){ // перебираем таблицу как ключ => значение
+
+                if(is_int($key)){ // Проверяем является ли числом
+                    if(!$item['table']) continue; // Проверяем на true и продолжаем
+                    else $key = $item['table']; // иначе просто записываем в значение ключа
+                }
+
+                if($join) $join .= ' '; //  конкатенируем пробел если есть $ join
+
+                if($item['on']){
+                    $join_fields = []; // массив с fields
+
+                    switch (2){ // Проверяем на количество элементов массива (сравниваем с двойкой)
+                        case count($item['on']['fields']): // Проверяем с ячейкой fields в on
+                            $join_fields = $item['on']['fields'];
+                            break;
+
+                        case count($item['on']): // Проверяем элементы массива on
+                            $join_fields = $item['on'];
+                            break;
+
+                        default: // Если ничего из выше перечисленного не подошло
+                            continue 2; // Выходим на два уровня цикла вверх
+                            break;
+                    }
+
+                    if(!$item['type']) $join .= 'LEFT JOIN'; // Проверка на наличие типа присоединения если нет то по умолчанию LEFT JOIN
+                    else $join .= trim(strtoupper($item['type'])) . ' JOIN '; // Иначе на всякий случай избавляюсь от про пробелов и ставлю все в верхний регистр а также конкатенирую ' JOIN '
+
+                    $join .= $key . ' ON '; // добавляем ON
+
+                    if($item['on']['table']) $join .= $item['on']['table']; // Проверяем на наличие таблицы
+                    else $join .= $join_table; // иначе стыкуем таблицу по умолчанию
+
+                    $join .= '.' . $join_fields[0] . '=' . $key . '.' . $join_fields[0];
+
+                    $join_table =  $key; // записываем текущую таблицу для следующей итерации цикла
+
+                    if($new_where){ // Проверка на наличие new_where
+
+                        if($item['where']){
+                            $new_where = false;
+                        }
+
+                        $group_condition = 'WHERE';
+
+                    }else{
+                        $group_condition = $item['group_condition'] ? strtoupper($item['group_condition']) : 'AND';
+                    }
+
+                    $fields .= $this->createFields($key, $item);
+                    $where .= $this->createWhere($key, $item, $group_condition);
+
+                }
+
+            }
+
+        }
+
+        return compact('fields', 'join', 'where');
 
     }
 
