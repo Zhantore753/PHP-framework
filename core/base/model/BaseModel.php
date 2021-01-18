@@ -94,13 +94,13 @@ class BaseModel
 
     final public function get($table, $set = []){
 
-        $fields = $this->createFields($table, $set);
-        $order = $this->createOrder($table, $set);
-        $where = $this->createWhere($table, $set);
+        $fields = $this->createFields($set, $table);
+        $order = $this->createOrder($set, $table);
+        $where = $this->createWhere($set, $table);
 
         if(!$where) $new_where = true;
         else $new_where = false;
-        $join_arr = $this->createJoin($table, $set, $new_where);
+        $join_arr = $this->createJoin( $set, $table, $new_where);
 
         $fields .= $join_arr['fields'];
         $join = $join_arr['join'];
@@ -108,15 +108,15 @@ class BaseModel
 
         $fields = rtrim($fields, ',');
 
-        $limit = $set['limit'] ? $set['limit'] : '';
+        $limit = $set['limit'] ? 'LIMIT ' . $set['limit'] : ''; // проверка на наличие лимита
 
-        $query = "SELECT $fields FROM $table $join $where $order $limit";
+        $query = "SELECT $fields FROM $table $join $where $order $limit"; // формирование итогового запроса
 
         return $this->query($query);
 
     }
 
-    protected function createFields($table = false, $set){
+    protected function createFields($set, $table = false){
 
         $set['fields'] = (is_array($set['fields']) && !empty($set['fields'])) // проверка на то является ли ячейка fields массивом и на ее наличие впринципе
                             ? $set['fields'] : ['*']; // если проверка прошла то дальше работаем с этой ячейкой иначе берем все то есть передаем '*'
@@ -133,7 +133,7 @@ class BaseModel
 
     }
 
-    protected function createOrder($table = false, $set){
+    protected function createOrder($set, $table = false){
 
         $table = $table ? $table . '.' : ''; // Проверка на то есть ли вообще $table
 
@@ -168,7 +168,7 @@ class BaseModel
 
     }
 
-    protected function createWhere($table = false, $set, $instruction = 'WHERE'){
+    protected function createWhere($set, $table = false, $instruction = 'WHERE'){
 
         $table = $table ? $table . '.' : ''; // Проверка на то есть ли вообще $table
 
@@ -204,7 +204,7 @@ class BaseModel
 
                 if($operand === 'IN' || $operand === 'NOT IN'){ // Если хоть что то из этого есть то идем дальше
 
-                    if(is_string($item) && strpos($item, 'SELECT')){ // Проверка на строку и наличие в ней сточки SELECT
+                    if(is_string($item) && (strpos($item, 'SELECT')) === 0 ){ // Проверка на строку и наличие в ней сточки SELECT
                         $in_str = $item;
                     }else{ // иначе
                         if(is_array($item)) $temp_item = $item; // Проверяем на то массив это или нет есл да то просто кладем в переменную $temp_item
@@ -213,7 +213,7 @@ class BaseModel
                         $in_str = ''; // создание переменной
 
                         foreach ($temp_item as $v){ // перебор массива с значениями $v
-                            $in_str .= "'" . trim($v) . "',"; // конкатенируем строку в кавычках и избавляемся от пробелов
+                            $in_str .= "'" . addslashes(trim($v)) . "',"; // конкатенируем строку в кавычках и избавляемся от пробелов
                         }
                     }
 
@@ -233,14 +233,14 @@ class BaseModel
                         }
                     }
 
-                    $where .= $table . $key . ' LIKE ' . "'" . $item . "' $condition"; // формровние $where
+                    $where .= $table . $key . ' LIKE ' . "'" . addslashes($item) . "' $condition"; // формровние $where
 
                 }else{
 
                     if((strpos($item, 'SELECT')) === 0){
                         $where .= $table . $key . $operand . '(' . $item . ") $condition"; // формровние $where
                     }else{
-                        $where .= $table . $key . $operand . "'" . $item . "' $condition"; // формровние $where
+                        $where .= $table . $key . $operand . "'" . addslashes($item) . "' $condition"; // формровние $where
                     }
 
                 }
@@ -255,7 +255,7 @@ class BaseModel
 
     }
 
-    protected function createJoin($table, $set, $new_where = false){
+    protected function createJoin($set, $table, $new_where = false){
 
         $fields = '';
         $join = '';
@@ -291,7 +291,7 @@ class BaseModel
                             break;
                     }
 
-                    if(!$item['type']) $join .= 'LEFT JOIN'; // Проверка на наличие типа присоединения если нет то по умолчанию LEFT JOIN
+                    if(!$item['type']) $join .= 'LEFT JOIN '; // Проверка на наличие типа присоединения если нет то по умолчанию LEFT JOIN
                     else $join .= trim(strtoupper($item['type'])) . ' JOIN '; // Иначе на всякий случай избавляюсь от про пробелов и ставлю все в верхний регистр а также конкатенирую ' JOIN '
 
                     $join .= $key . ' ON '; // добавляем ON
@@ -299,7 +299,7 @@ class BaseModel
                     if($item['on']['table']) $join .= $item['on']['table']; // Проверяем на наличие таблицы
                     else $join .= $join_table; // иначе стыкуем таблицу по умолчанию
 
-                    $join .= '.' . $join_fields[0] . '=' . $key . '.' . $join_fields[0];
+                    $join .= '.' . $join_fields[0] . '=' . $key . '.' . $join_fields[1];
 
                     $join_table =  $key; // записываем текущую таблицу для следующей итерации цикла
 
@@ -315,8 +315,8 @@ class BaseModel
                         $group_condition = $item['group_condition'] ? strtoupper($item['group_condition']) : 'AND';
                     }
 
-                    $fields .= $this->createFields($key, $item);
-                    $where .= $this->createWhere($key, $item, $group_condition);
+                    $fields .= $this->createFields($item, $key);
+                    $where .= $this->createWhere($item, $key, $group_condition);
 
                 }
 
