@@ -250,9 +250,20 @@ namespace core\base\model;
 
              foreach ($files as $row => $file){
 
+                 $insert_arr['fields'] .= $row . ',';
+
+                 if(is_array($file)) $insert_arr['values'] .= "'" . addslashes(json_encode($file)) . "',";
+                 else $insert_arr['values'] .= "'" . addslashes($file) . "',";
+
              }
 
          }
+
+         if($insert_arr){
+             foreach ($insert_arr as $key => $arr) $insert_arr[$key] = rtrim($arr,',');
+         }
+
+         return $insert_arr;
 
      }
 

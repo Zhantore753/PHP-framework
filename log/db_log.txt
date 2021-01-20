@@ -2,3 +2,11 @@ Fault: 18-01-2021 13:40:24 - Ошибка в SQL запросе: SELECT teachers
 file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\model\BaseModel.php
 In line 32
 
+Fault: 20-01-2021 12:29:36 - Ошибка в SQL запросе: INSERT INTO teachers (name,content,gallery_img,img,) VALUES ('Olga','Hello','[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg',) - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') VALUES ('Olga','Hello','[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jp' at line 1
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\model\BaseModel.php
+In line 40
+
+Fault: 20-01-2021 12:37:36 - Ошибка в SQL запросе: INSERT INTO teachers (content,gallery_img,img) VALUES ('Hello','[\"red.jpg\",\"blue.jpg\",\"black.jpg\"]','main_img.jpg') - 1364 Field 'name' doesn't have a default value
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\model\BaseModel.php
+In line 40
+
