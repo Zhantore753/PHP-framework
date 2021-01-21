@@ -177,7 +177,7 @@ class BaseModel extends BaseModelMethods
                 if(!$columns) return false;
 
                 if($columns['id_row'] && $set['fields'][$columns['id_row']]){
-                    $where = 'WHERE' . $columns['id_row'] . '=' . $set['fields'][$columns['id_row']];
+                    $where = 'WHERE ' . $columns['id_row'] . '=' . $set['fields'][$columns['id_row']];
                     unset($set['fields'][$columns['id_row']]);
                 }
 

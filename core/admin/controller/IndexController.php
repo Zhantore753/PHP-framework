@@ -15,10 +15,13 @@ class IndexController extends BaseController
 
         $table = 'teachers';
 
-        $files['gallery_img'] = ['red.jpg', 'blue.jpg', 'black.jpg'];
-        $files['img'] = 'main_img.jpg';
+        $files = '';
 
-        $res = $db->showColumns($table);
+        $_POST['id'] = 8;
+        $_POST['name'] = '';
+        $_POST['content'] = "<p>New' Book1<p>";
+
+        $res = $db->edit($table, ['files' => $files]);
 
         exit('id = ' . $res['id'] . ' Name = ' . $res['name']);
     }
