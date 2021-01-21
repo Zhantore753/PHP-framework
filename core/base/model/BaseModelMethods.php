@@ -220,10 +220,6 @@ namespace core\base\model;
 
      protected function createInsert($fields, $files, $except){
 
-         if(!$fields){
-             $fields = $_POST;
-         }
-
          $insert_arr = [];
 
          if($fields){
@@ -259,9 +255,7 @@ namespace core\base\model;
 
          }
 
-         if($insert_arr){
-             foreach ($insert_arr as $key => $arr) $insert_arr[$key] = rtrim($arr,',');
-         }
+         foreach ($insert_arr as $key => $arr) $insert_arr[$key] = rtrim($arr,',');
 
          return $insert_arr;
 
