@@ -15,13 +15,7 @@ class IndexController extends BaseController
 
         $table = 'teachers';
 
-        $files = '';
-
-        $_POST['id'] = 8;
-        $_POST['name'] = '';
-        $_POST['content'] = "<p>New' Book1<p>";
-
-        $res = $db->edit($table, ['files' => $files]);
+        $res = $db->edit($table);
 
         exit('id = ' . $res['id'] . ' Name = ' . $res['name']);
     }
