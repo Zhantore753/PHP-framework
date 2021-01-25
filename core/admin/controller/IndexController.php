@@ -15,7 +15,15 @@ class IndexController extends BaseController
 
         $table = 'teachers';
 
-        $res = $db->edit($table);
+        $res = $db->delete($table,[
+            'where' => ['id' => 11],
+            'join' => [
+                [
+                    'table' => 'students',
+                    'on' => ['student_id', 'id']
+                ]
+            ]
+        ]);
 
         exit('id = ' . $res['id'] . ' Name = ' . $res['name']);
     }

@@ -14,3 +14,11 @@ Fault: 21-01-2021 13:57:27 - Ошибка в SQL запросе: UPDATE teachers
 file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\model\BaseModel.php
 In line 40
 
+Fault: 25-01-2021 11:36:20 - Ошибка в SQL запросе: INSERT INTO teachers (name,content,students_id) VALUES ('teacher - 0','content - 0','4') - 1054 Unknown column 'students_id' in 'field list'
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\model\BaseModel.php
+In line 40
+
+Fault: 25-01-2021 11:39:41 - Ошибка в SQL запросе: UPDATE teachers SET name=,img= WHERE teachers.id='1'  - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'img= WHERE teachers.id='1'' at line 1
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\model\BaseModel.php
+In line 40
+

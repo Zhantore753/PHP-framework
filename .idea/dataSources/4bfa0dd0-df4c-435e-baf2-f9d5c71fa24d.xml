@@ -824,7 +824,11 @@ SELECT|mysql.user
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <key id="251" parent="239" name="PRIMARY">
+    <column id="251" parent="239" name="student_id">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <key id="252" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
