@@ -8,11 +8,12 @@ class ShowController extends BaseAdmin
 {
 
     protected function inputData(){
-        $this->excetBase();
+        $this->execBase();
 
         $this->createTableData();
 
-        exit();
+        $this->createData(['fields' => ['content']]);
+
     }
 
     protected function outputData(){
