@@ -10,8 +10,4 @@ class Model extends BaseModel
 
     use Singleton; // используем Singleton
 
-    public function test(){
-
-    }
-
 }
