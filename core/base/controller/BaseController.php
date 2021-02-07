@@ -12,7 +12,11 @@ abstract class BaseController
 
     use \core\base\controller\BaseMethods;
 
+    protected $header;
+    protected $content;
+    protected $footer;
     protected $page;
+
     protected $errors;
 
     protected $controller;
@@ -20,6 +24,7 @@ abstract class BaseController
     protected $outputMethod;
     protected $parameters;
 
+    protected $template;
     protected $styles;
     protected $scripts;
 
@@ -70,7 +75,7 @@ abstract class BaseController
 
     protected function render($path = '', $parameters = []){
 
-        extract($parameters); //создание таблицы параметров// создание переменных на основе массива в виде $key = $value
+        @extract($parameters); //создание таблицы параметров // создание переменных на основе массива в виде $key = $value
 
         if(!$path){ // если path не был передан
 
@@ -120,7 +125,7 @@ abstract class BaseController
             }
 
             if(ADMIN_CSS_JS['scripts']){
-                foreach(USER_CSS_JS['scripts'] as $item) $this->scripts[] = PATH . ADMIN_TEMPLATE . trim($item, '/');
+                foreach(ADMIN_CSS_JS['scripts'] as $item) $this->scripts[] = PATH . ADMIN_TEMPLATE . trim($item, '/');
             }
         }
     }

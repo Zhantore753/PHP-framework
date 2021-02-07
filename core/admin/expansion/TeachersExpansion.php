@@ -11,7 +11,7 @@ class TeachersExpansion
     use Singleton;
 
     public function expansion($args = []){
-        $this->title = 'LALALA title';
+        //$this->title = 'LALALA title';
     }
 
 }

@@ -1,0 +1,112 @@
+Fault: 07-02-2021 11:54:07 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 11:54:08 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 11:54:08 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 11:54:08 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 11:54:08 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 11:54:08 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 11:54:08 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 11:54:08 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 11:54:08 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 11:54:08 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 11:54:08 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 11:54:09 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 11:54:09 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 11:54:09 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 11:54:09 - Не верное имя файла для подключения - core/user/controller/ImagesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 11:54:09 - Class core\user\controller\ImagesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 12:01:47 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 12:01:47 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 12:01:48 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 12:01:48 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 12:01:48 - Не верное имя файла для подключения - core/user/controller/ImagesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 12:01:48 - Class core\user\controller\ImagesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 12:01:48 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 12:01:48 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 12:01:48 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 12:01:48 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 07-02-2021 12:01:48 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 07-02-2021 12:01:48 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
