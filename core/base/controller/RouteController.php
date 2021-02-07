@@ -16,13 +16,15 @@ class RouteController extends BaseController
     private  function __construct(){
         $adress_str = $_SERVER['REQUEST_URI'];
 
-        if(strrpos($adress_str, '/') === strlen($adress_str) - 1  && strrpos($adress_str, '/') !== 0){
-            $this->redirect(rtrim($adress_str, '/'), 301);
-        }
-
         $path = substr($_SERVER['PHP_SELF'], 0, strpos($_SERVER['PHP_SELF'], 'index.php'));
 
         if($path === PATH){
+
+            if(strrpos($adress_str, '/') === strlen($adress_str) - 1  &&
+                strrpos($adress_str, '/') !== strlen(PATH) - 1){
+                $this->redirect(rtrim($adress_str, '/'), 301);
+            }
+
             $this->routes = Settings::get('routes');
 
             if(!$this->routes) throw new RouteException('Отсутствуют маршруты в базовых настройках', 1);
