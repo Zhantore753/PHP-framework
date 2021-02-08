@@ -42,14 +42,19 @@ class Settings
         ]
     ];
 
+    private $expansion = 'core/admin/expansion/';
+
     private $defaultTable = 'teachers';
+
+    private $projectTables = [
+        'teachers' => ['name' => 'Учителя', 'img' => 'pages.png'],
+        'students' => ['name' => 'Студенты']
+    ];
 
     private $templateArr = [
         'text' => ['name', 'phone', 'adress'],
         'textarea' => ['content', 'keywords'],
     ];
-
-    private $expansion = 'core/admin/expansion/';
 
     static public function get($property){
         return self::instance()->$property;

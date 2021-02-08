@@ -110,3 +110,155 @@ Fault: 07-02-2021 12:01:48 - Class core\user\controller\TemplateController does 
 file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
 In line 47
 
+Fault: 08-02-2021 14:38:46 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:38:46 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:38:46 - Не верное имя файла для подключения - core/user/controller/ImagesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:38:46 - Class core\user\controller\ImagesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:38:57 - Не верное имя файла для подключения - core/admin/controller/AdminController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:38:57 - Class core\admin\controller\AdminController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:39:01 - Не верное имя файла для подключения - core/user/controller/TemplateController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:39:01 - Class core\user\controller\TemplateController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:39:02 - Не верное имя файла для подключения - core/user/controller/ImagesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:39:02 - Class core\user\controller\ImagesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:51:47 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:51:47 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:52:39 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:52:39 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:55:02 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:55:02 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:55:31 - Не верное имя файла для подключения - core/admin/controller/AddController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:55:31 - Class core\admin\controller\AddController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:55:36 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:55:36 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:56:27 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:56:27 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:56:30 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:56:30 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:56:31 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:56:31 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:56:33 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:56:33 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:56:34 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:56:34 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:56:44 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:56:44 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:56:52 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:56:52 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:56:54 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:56:54 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+
+Fault: 08-02-2021 14:56:55 - Не верное имя файла для подключения - core/user/controller/UserfilesController
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\settings\internal_settings.php
+In line 33
+
+Fault: 08-02-2021 14:56:55 - Class core\user\controller\UserfilesController does not exist
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\controller\BaseController.php
+In line 47
+

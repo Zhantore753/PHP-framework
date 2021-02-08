@@ -30,7 +30,7 @@ abstract class BaseAdmin extends BaseController
 
         if(!$this->model) $this->model = Model::instance();
         if(!$this->menu) $this->menu = Settings::get('projectTables');
-        if(!$this->adminPath) $this->adminPath = Settings::get('routes')['admin']['alias'] . '/';
+        if(!$this->adminPath) $this->adminPath = PATH . Settings::get('routes')['admin']['alias'] . '/';
 
         $this->sendNoCacheHeaders();
 
