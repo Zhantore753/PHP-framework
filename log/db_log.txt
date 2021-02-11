@@ -30,3 +30,15 @@ Fault: 05-02-2021 15:08:27 - Ошибка в SQL запросе: SHOW COLUMNS FR
 file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\model\BaseModel.php
 In line 40
 
+Fault: 11-02-2021 12:39:24 - Ошибка в SQL запросе: SELECT * FROM information_schema.KEY_COLUMN_USAGE
+                    WHERE TABLE_SCHEMA = im AND TABLE_NAME = articles
+                    CONSTRAINT_NAME <> 'PRIMARY' AND REFERENCED_TABLE_NAME is not null - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINT_NAME <> 'PRIMARY' AND REFERENCED_TABLE_NAME is not null' at line 3
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\model\BaseModel.php
+In line 37
+
+Fault: 11-02-2021 12:41:42 - Ошибка в SQL запросе: SELECT * FROM information_schema.KEY_COLUMN_USAGE
+                    WHERE TABLE_SCHEMA = 'im' AND TABLE_NAME = 'articles'
+                    CONSTRAINT_NAME <> 'PRIMARY' AND REFERENCED_TABLE_NAME is not null - 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINT_NAME <> 'PRIMARY' AND REFERENCED_TABLE_NAME is not null' at line 3
+file D:\openserver\openserver_2\OSPanel\domains\im.my\public_html\core\base\model\BaseModel.php
+In line 37
+
